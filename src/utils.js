@@ -1,5 +1,5 @@
 // Utility function to greet a person
-function greet(name) {
+function Narender(name) {
   return `Hello, ${name}!`;
 }
 
