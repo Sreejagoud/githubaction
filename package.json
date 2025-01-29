@@ -1,0 +1,19 @@
+{
+  "name": "github-action-example",
+  "version": "1.0.0",
+  "description": "A Node.js project using GitHub Actions for CI.",
+  "main": "src/index.js",
+  "scripts": {
+    "lint": "eslint src/*.js",
+    "test": "jest"
+  },
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "eslint": "^7.32.0",
+    "jest": "^27.5.1"
+  },
+  "author": "Your Name",
+  "license": "MIT"
+}
