@@ -1,6 +1,6 @@
 const greet = require('../src/utils');
 
 test('greet function should return a greeting message', () => {
-  expect(greet('Alice')).toBe('Hello, Alice!');
-  expect(greet('Bob')).toBe('Hello, Bob!');
+  expect(greet('Narender')).toBe('Hello, Alice!');
+  expect(greet('Sreeja')).toBe('Hello, Bob!');
 });
