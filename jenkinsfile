@@ -1,0 +1,72 @@
+pipeline {
+    agent any  // This specifies that Jenkins can run the pipeline on any available agent (node).
+
+    environment {
+        NODE_VERSION = '14'  // Node.js version to use
+    }
+
+    stages {
+        stage('Checkout Code') {
+            steps {
+                script {
+                    // Check out the repository (this is automatic for Jenkins)
+                    checkout scm
+                }
+            }
+        }
+
+        stage('Set up Node.js') {
+            steps {
+                script {
+                    // Set up Node.js with the specified version
+                    sh 'curl -sL https://deb.nodesource.com/setup_${NODE_VERSION}.x | sudo -E bash -'
+                    sh 'sudo apt-get install -y nodejs'
+                }
+            }
+        }
+
+        stage('Install Dependencies') {
+            steps {
+                script {
+                    // Install the dependencies using npm
+                    sh 'npm install'
+                }
+            }
+        }
+
+        stage('Run Linting') {
+            steps {
+                script {
+                    // Run linting (if you have a lint script defined in your package.json)
+                    sh 'npm run lint'
+                }
+            }
+        }
+
+        stage('Run Tests') {
+            steps {
+                script {
+                    // Run tests (make sure you have a test script in package.json)
+                    sh 'npm test'
+                }
+            }
+        }
+    }
+
+    post {
+        always {
+            // Clean up or other actions to run after the build completes
+            echo 'Build completed!'
+        }
+
+        success {
+            // Actions to run if the build succeeds
+            echo 'Build succeeded!'
+        }
+
+        failure {
+            // Actions to run if the build fails
+            echo 'Build failed!'
+        }
+    }
+}
