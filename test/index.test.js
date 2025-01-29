@@ -1,6 +1,6 @@
-const Narender = require('../src/utils');
+const greet = require('../src/utils');
 
 test('greet function should return a greeting message', () => {
-  expect(Narender('Alice')).toBe('Hello, Alice!');
-  expect(Narender('Bob')).toBe('Hello, Bob!');
+  expect(greet('Alice')).toBe('Hello, Alice!');
+  expect(greet('Bob')).toBe('Hello, Bob!');
 });
