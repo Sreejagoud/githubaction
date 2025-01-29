@@ -1,6 +1,6 @@
 // Utility function to greet a person
-function Narender(name) {
+function greet(name) {
   return `Hello, ${name}!`;
 }
 
-module.exports = Narender;
+module.exports = greet;
